@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/base.css">
+</head>
+
+<body>
+  <div id="topbar">
+    <img src="http://www.plxs.com.au/wp-content/uploads/2015/12/logo-02.svg" width="100s"/>
+  </div>
+  <div id="dog">
+  <div id="hannah">
+  <div id="vader"></div>
+  <div id="luke"></div>
+  <div></div>
+  <div id="bob"></div>
+
+  </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/theaterjs@latest/dist/theater.min.js"></script>
+<script>
+  var theater = theaterJS()
+
+  theater
+    .on('type:start, erase:start', function () {
+      // add a class to actor's dom element when he starts typing/erasing
+      var actor = theater.getCurrentActor()
+      actor.$element.classList.add('is-typing')
+    })
+    .on('type:end, erase:end', function () {
+      // and then remove it when he's done
+      var actor = theater.getCurrentActor()
+      actor.$element.classList.remove('is-typing')
+    })
+
+  theater
+    .addActor('vader')
+    .addActor('luke')
+    .addActor('bob')
+
+  theater
+    .addScene('vader:Hello!', 600)
+    .addScene('vader:Welcome to the 90 Trust Profile', 100)
+    .addScene('luke:90?', 400)
+    .addScene('vader:Yes.', 200)
+    .addScene('luke:But what does that mean for me?', 400)
+    .addScene('bob:This investment seeks to provide capital growth over the long-term by investing in a diversified portfolio of predominantly growth assets with minimal defensive asset exposure and to achieve total returns after fees in excess of the benchmark over a rolling five year period..', 600)
+    .addScene('luke:Five years of growth. Wow!', 400)
+</script>
+</body>
+
+</html>
