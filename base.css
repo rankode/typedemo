@@ -7,13 +7,19 @@ body {
   font-family: 'PT Serif', serif;
   font-size: 28pt !important;
   margin: 0px;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #hannah {
-  background-color: rgba(255, 255, 255, 0.3);
-  text-align: center;
-  max-width: 600px;
-  height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: right;
+    max-width: 600px;
+    height: 800px;
+    margin-left: 100px;
+}
+
+#dog {
+  height: 500px;
 }
 
 #vader {
@@ -28,11 +34,22 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
+#btn {
+  background-color: #74274b !important;
+  border: 1px solid white;
+  color: white;
+  font-weight: 200;
+  font-size: 9pt;
+  font-family: monospace;
+}
+
 #luke {
   text-align: center;
   font-weight: 600;
   color: #6c173d;
+  font-size: 12pt;
   margin-bottom: 13px;
+  font-size: 34pt;
 }
 
 #bob {
@@ -42,4 +59,24 @@ body {
   font-size: 13pt;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+g#salesDonut {
+  min-width: 600px;
+}
+
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+svg text.percent{
+	fill:white;
+	text-anchor:middle;
+	font-size:12px;
 }

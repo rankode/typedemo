@@ -3,6 +3,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./base.css">
+  <title>Pie</title>
 </head>
 
 <body>
@@ -18,6 +19,50 @@
 
   </div>
   </div>
+
+  <button id="btn" onClick="changeData()">Change Data</button>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="Donut3D.js"></script>
+  <script>
+
+  var salesData=[
+  	{label:"Growth", color:"#74274b", value:90*1000},
+  	{label:"Defensive", color:"#1e8c82", value: 10*1000}
+  ];
+
+  var conservData=[
+    {label:"Basic", color:"#74274b", value:10*1000},
+    {label:"Plus", color:"#1e8c82", value: 90*1000}
+  ];
+
+  var svg = d3.select("body").append("svg").attr("width",700).attr("height",300);
+
+  svg.append("g").attr("id","salesDonut");
+  svg.append("g").attr("id","quotesDonut");
+
+  Donut3D.draw("salesDonut", randomData(), 150, 150, 130, 100, 30, 0.4);
+  Donut3D.draw("quotesDonut", conservrandomData(), 450, 150, 130, 100, 30, 0);
+
+  function changeData(){
+  	Donut3D.transition("salesDonut", randomDatatwo(), 130, 100, 30, 0.4);
+  	Donut3D.transition("quotesDonut", conservrandomData(), 130, 100, 30, 0);
+  }
+
+  function randomData(){
+  	return salesData.map(function(d){
+  		return {label:d.label, value:d.value, color:d.color};});
+  }
+
+  function randomDatatwo(){
+    return salesData.map(function(d){
+      return {label:d.label, value:d.value*Math.random(), color:d.color};});
+  }
+
+  function conservrandomData(){
+    return conservData.map(function(d){
+      return {label:d.label, value:d.value, color:d.color};});
+  }
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/theaterjs@latest/dist/theater.min.js"></script>
 <script>
@@ -49,6 +94,7 @@
     .addScene('bob:This investment seeks to provide capital growth over the long-term by investing in a diversified portfolio of predominantly growth assets with minimal defensive asset exposure and to achieve total returns after fees in excess of the benchmark over a rolling five year period..', 600)
     .addScene('luke:Five years of growth. Wow!', 400)
 </script>
+
 </body>
 
 </html>
